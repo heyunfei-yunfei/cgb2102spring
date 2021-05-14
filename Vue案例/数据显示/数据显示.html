@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1 v-cloak >{{hello}}</h1>
+        <!--以优化后的效果进行展现 内部兼容了v-cloak-->
+        <h3 v-text="msg"></h3>
+        <!--以html解析之后的效果进行展现-->
+        <h3 v-html="html"></h3>
+        <!--v-pref指令 跳过vue的解析的过程,直接展现数据-->
+        <h3 v-pre>{{name}}}</h3>
+        <!--v-once指令 元素只被解析一次-->
+        <h3 v-once>{{once}}</h3>
+        <!--v-model 测试双向数据绑定 1.数据给用户展现的 2.用户需要传给数据给服务器-->
+        {{model}}<input v-model="model" name="model">
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data:{
+                hello: '测试vue入门案例',
+                msg: '测试v-text指令',
+                html: '<h3>html效果展现</h3>',
+                once: '测试解析次数',
+                model: '测试双向数据绑定'
+            }
+        })
+    </script>
+</body>
+</html>

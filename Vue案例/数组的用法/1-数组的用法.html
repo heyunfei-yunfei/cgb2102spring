@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组案例</title>
+
+</head>
+<body>
+<div id="app">
+   <span v-for="o in array" v-text="o"></span><br>
+    <span v-for="o in array1" v-text="o"></span><br>
+    <input type="text" v-model="data">
+    <!--追加一个元素-->
+    <button @click="push">追加</button>
+    <br>
+    <!--移除最后一个元素-->
+    <button @click="pop">移出</button>
+    <br>
+    <!--删除第一个元素-->
+    <button @click="shift">删除第一个元素</button>
+    <br>
+    <!---->
+    <button @click="unshift">在开头追加</button>
+    <br>
+    <button @click="splice">参数替换</button>
+    <br>
+    <button @click="sort">排序</button>
+    <br>
+    <button @click="reverse">数组反转</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+
+
+    const app = new Vue({
+        el: "#app",
+        data: {
+         array:['甄姬','孙尚香','貂蝉'],
+         data:'',
+         array1: [9,3,6,0,1]
+        },
+
+        methods:{
+            push(){
+                this.array.push(this.data)
+            },
+            pop(){
+              this.array.pop()
+            },
+            shift(){
+                this.array.shift()
+            },
+            unshift() {
+                this.array.unshift(this.data)
+            },
+
+            splice(){
+                //关于参数说明 参数1:操作数据起始位置 index
+                //参数2:操作数据的个数
+                //参数3:要替换的值
+                /*将第一个参数进行替换(将元素当做一个整体进行替换)*/
+                this.array.splice(0,1,this.data)
+            },
+
+            sort(){
+                //排序
+                this.array1.sort()
+            },
+
+            reverse(){
+                this.array.reverse()
+            }
+        }
+
+    })
+</script>
+</body>
+</html>

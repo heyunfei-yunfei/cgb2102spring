@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!--导入模板标签!!!!!-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表数据</title>
+    <!--
+        1.引入函数类库
+        2.使用模板工具类中的静态资源文件默认的路径都在static目录下
+    -->
+    <script src="/jquery-3.6.0.min.js"></script>
+    <script>
+        //1.jQuery中有一种编程思想 函数式编程
+        $(function(){
+            //让整个页面加载完成之后再执行. 以后所有的操作都应该在函数内完成!!!!
+
+            /**
+             * 常见Ajax用法
+             * 1.$.get(url地址,提交数据,回调函数,返回值类型)
+             * 2.$.post(...)
+             *
+             * for循环的写法
+             1.常规for循环
+             for(var i=0;i<result.length;i++){
+					var user = result[i];
+					console.log(user)
+				  }
+
+             2.使用in的关键字
+             //关键字 in index 代表遍历的下标
+             for(index in result){
+					var user = result[index]
+					console.log(user)
+				  }
+             *
+
+             3.使用of关键字
+             for(user of result){
+					console.log(user)
+				}
+
+
+             * 业务需求:
+             * 	要求向后端服务器发起请求 /findAjaxUser,之后将返回值结果 进行页面解析
+             */
+
+            $.get("/findAjaxUser",function(result){
+                //1.result是服务器返回的结果 [{},{},{}....}]
+                //2.将返回值结果进行循环遍历
+                for(user of result){
+                    //3.获取对象的属性值
+                    var id = user.id
+                    var name = user.name
+                    var age = user.age
+                    var sex = user.sex
+                    var tr = "<tr align='center'><td>"+ id +"</td><td>"+name+"</td><td>"+age+"</td><td>"+sex+"</td></tr>"
+                    var update = ""
+                    //4.选中id=userTable的元素
+                    //5.之后追加数据append(追加的内容)
+                    $("#userTable").append(tr)
+                    $("#update").append
+                }
+            })
+
+
+            /**
+             * 参数说明:
+             * 	1.字符串拼接
+             * 	   语法:key=value&key2=value2....
+             * 	   例如: id=1&name=tom
+             *
+             *  2.js对象的写法
+             * 	   语法: {key:value,key2:value2.....}
+             * 	   例如: {id:1,name='tom'}
+             */
+
+            /* $.get("/findAjaxUser",'id=1&name=tom',function(result){
+                console.log("ajax请求成功!!!")
+            }) */
+
+            console.log("对象结构的语法")
+            $.get("/findAjaxUser",{id:1,name:'tomcat'},function(result){
+                console.log("ajax Get请求成功!!!")
+            })
+
+            $.post('findAjaxUser',{id:1,name:'tomcat'},function(result){
+
+                console.log("post请求执行成功")
+            })
+
+            //要求返回值都是json字符串.
+            $.getJSON('findAjaxUser',{id:1,name:'tomcat'},function(resuslt){
+                console.log("getJSON的请求数据!!!")
+            })
+
+            //最为基本的ajax
+            $.ajax({
+                type:	"put",    				 //请求的类型
+                url: 'findAjaxUser',	         //请求的路径
+                data: {id:1,name:'tomcat猫'},	 //请求的参数
+                //成功之后的回调函数
+                success: function(result){		 //成功回调
+                    console.log("ajax请求成功!!!!")
+                },
+                error: function(result){		 //失败回调
+                    console.log("ajax请求失败")
+                }
+            })
+        })
+
+    </script>
+</head>
+<body>
+
+<h1>修改数据</h1>
+<div id="update">
+    <p>编号:</p>
+    <p>姓名:</p>
+    <p>年龄:</p>
+    <p>性别:</p>
+    <button>更新</button>
+</div>
+<hr />
+<!--  -->
+<table id="userTable" border="1px" align="center" width="800px">
+    <tr align="center">
+        <td colspan="4"><h3>用户列表</h3></td>
+    </tr>
+    <tr align="center">
+        <td>ID</td>
+        <td>名称</td>
+        <td>年龄</td>
+        <td>性别</td>
+        <td>操作</td>
+    </tr>
+    <tr align="center">
+        <td>1</td>
+        <td>测试</td>
+        <td>18</td>
+        <td>男</td>
+        <td>
+            <button>修改</button>
+            <button>删除</button>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

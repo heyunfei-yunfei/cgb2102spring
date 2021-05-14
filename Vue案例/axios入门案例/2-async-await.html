@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>入门案例</title>
+</head>
+<body>
+
+
+<!-- 1.导入js类库 -->
+<script src="../js/axios.js"></script>
+<script>
+
+
+     axios.defaults.baseURL = "http://localhost:8090/"
+    //1.定义方法
+    async function getHello() {
+        const result = await axios.get("hello")
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>

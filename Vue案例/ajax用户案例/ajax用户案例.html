@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表数据</title>
+</head>
+<body>
+<div id="app">
+    用户编号: <input type="text" disabled v-model="user.id"  />
+    用户姓名: <input type="text" v-model="user.name"/><br>
+    用户年龄: <input type="text" v-model="user.age"/>
+    用户性别: <input type="text" v-model="user.sex"/>
+    <button @click="updateUser">更新</button>
+    <hr />
+    <!-- 用户展现的表格 -->
+    <table id="userTable" border="1px" align="center" width="800px">
+        <tr align="center">
+            <td colspan="5"><h3>用户列表</h3></td>
+        </tr>
+        <tr align="center">
+            <td>ID</td>
+            <td>名称</td>
+            <td>年龄</td>
+            <td>性别</td>
+            <td>操作</td>
+        </tr>
+        <tr align="center" v-for="user in userList">
+            <td v-text="user.id"></td>
+            <td v-text="user.name"></td>
+            <td v-text="user.age"></td>
+            <td v-text="user.sex"></td>
+            <td>
+                <button @click="updateBtn(user)">修改</button>
+                <button @click="deleteUser(user)">删除</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<!-- 1.引入页面JS -->
+<script src="../js/vue.js"></script>
+<script src="../js/axios.js"></script>
+
+<!-- 2.编辑自己的JS -->
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            //1.定义用户列表数据
+            userList: [],
+            //2.定义用户属性
+            user: {
+                id: '',
+                name: '',
+                age: '',
+                sex: ''
+            }
+        },
+        methods: {
+            async getUserList(){
+                const {data: result} = await axios.get('http://localhost:8090/axiosUser/findAll')
+                this.userList = result
+                //console.log(this.userList)
+            },
+            updateBtn(user){
+                //将用户传递的user对象赋值给data中的属性user
+                this.user = user
+            },
+
+           async updateUser(){
+                //请求类型 put/post  get/delete
+                //更新可以没有返回值
+                await axios.put('http://localhost:8090/axiosUser/updateUser',this.user)
+            },
+            async deleteUser(user){
+              //根据ID进行删除
+              let id = user.id
+                 axios.delete('http://localhost:8090/axiosUser/deleteUser',{
+                     params:{
+                         id:id
+                     }
+                 })
+                this.getUserList()
+            }
+        },
+        mounted(){
+            //当页面渲染成功之后调用
+            //调用查询用户的方法
+            this.getUserList()
+        }
+    })
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--构建user对象-->
+    <bean id="user" class="com.jt.pojo.User">
+        <property name="id" value="101"/>
+        <property name="name" value="springMVC设计模式">
+        </property>
+    </bean>
+
+    <!--2.让注解生效,开启包扫描
+    包路径特点:给包路径,则自动扫描同包及子孙包中的类
+    base-package:根据指定包路径,查找注解
+    写法1:多个包路径 使用,号分割-->
+    <context:component-scan base-package="com.jt"></context:component-scan>
+
+
+    <!--情景1:值想扫描个别的注解
+    use-default-filters="false" 按照用户指定的注解进行加载,默认规则不生效
+    use-default-filters="true" 默认的条件下扫描包中的所有注解-->
+   <!-- <context:component-scan base-package="com.jt" use-default-filters="false">-->
+       <!--当前的包扫描 只有Service有效-->
+       <!-- <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+    </context:component-scan>-->
+
+    <!--情景2:不想扫描某个注解-->
+    <!--<context:component-scan base-package="com.jt">-->
+        <!--通过包扫描 可以加载其它的注解 排除Controller注解-->
+     <!--   <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>-->
+
+</beans>
+

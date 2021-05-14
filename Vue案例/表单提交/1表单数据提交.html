@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单数据提交</title>
+
+</head>
+<body>
+<div id="app">
+
+    <form action="http:www.baidu.com">
+        <div>
+            <span>用户名:</span>
+            <span><input type="text" name="username" v-model="username"/></span>
+        </div>
+
+        <div>
+            <span>性别</span>
+            <span>
+
+                <!--label相当于合并为一个div 需要id-for进行关联-->
+                <input name="gender" type="radio" value="男" id="man" v-model="gender">
+                <label for="man">男</label>   <!--关联绑定-->
+                <input name="gender" type="radio" value="女" id="woman" v-model="gender">
+                <label for="woman">女</label>
+            </span>
+        </div>
+        <div>
+            <span>爱好</span>
+            <span>
+                <input type="checkbox" name="hobbies" value="敲代码" v-model="hobbies">敲代码
+                <input type="checkbox" name="hobbies" value="打游戏" v-model="hobbies">打游戏
+                <input type="checkbox" name="hobbies" value="喝水" v-model="hobbies">喝水
+            </span>
+        </div>
+        <div>
+            <span>部门</span>
+            <span><!--设定下拉选多选-->
+                <select name="dept"  v-model="dept" multiple="true">
+                    <option value="财务部">财务部</option>
+                    <option value="研发部">研发部</option>
+                    <option value="测试部">测试部</option>
+                </select>
+
+            </span>
+        </div>
+
+        <div>
+            <button @click.prevent="submit">提交</button>
+        </div>
+
+    </form>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            username: '',
+            gender: '女',
+            hobbies: ['敲代码', '喝水'],
+            dept:['测试部','研发部']
+
+        },
+        methods: {
+            submit() {
+                console.log("提交数据")
+            }
+        }
+    })
+</script>
+</body>
+</html>

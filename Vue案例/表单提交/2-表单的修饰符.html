@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单修饰符</title>
+
+</head>
+<body>
+<div id="app">
+    <!--将数据转化为数字-->
+    数字1: <input type="text" v-model.number="num1"><br>
+    数字2: <input type="text" v-model.number="num2"><br>
+    <button @click="addNum">加法操作</button>
+    <br>
+    总数: {{count}}
+    <hr>
+    <!--去除多余的空格-->
+    数据: <input type="text" v-model.trim="msg"> <br>
+    字符长度:{{msg.length}}
+
+    <hr>
+    <!-- lazy 当数据失去焦点时触发事件 -->
+    检验用户名: <input type="text" v-model.lazy="username">
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            num1: '',
+            num2: '',
+            count: '',
+            msg:'',
+            username:''
+        },
+        methods: {
+            addNum() {
+                this.count = this.num1 + this.num2
+
+            }
+        }
+    })
+</script>
+</body>
+</html>

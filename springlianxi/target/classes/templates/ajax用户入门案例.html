@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax用户入门案例</title>
+</head>
+<body>
+<div id="app">
+
+</div>
+
+
+<script src="../static/axios.js"></script>
+<script src="../static/vue.js"></script>
+<script>
+    let url = "http://localhost:8090/hello"
+    axios.get(url)
+        .then(result => {
+            console.log(result)
+            console.log(result.data)
+        })
+    let url1 = "http://localhost:8090/axios?id=100"
+    axios.get(url1)
+        .then(function (result) {
+            console.log(result.data)
+        })
+    axios.get('http://localhost:8090/axios01/69800').then(result => {
+        console.log(result.data)
+    })
+
+    /* axios.get("http://localhost:8090/axiosParams",{
+         params:{
+             id:10780
+         }
+     }).then(result=>{
+         console.log(result.data)
+     })*/
+    axios.post('http://localhost:8090/axiosParams', {
+        id: 888,
+        name:'tomcat猫'
+    }).then(result => {
+        console.log(result.data)
+    })
+
+    async function getHello() {
+        const {data: value}=await axios.get("http://localhost:8090/hello")
+        console.log(value)
+    }
+
+    getHello()
+
+</script>
+
+
+</body>
+</html>

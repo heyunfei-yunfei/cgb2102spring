@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路由规则</title>
+
+</head>
+<body>
+<div id="app">
+    <!--添加路由链家
+    router-link: vue会将标签解析为a标签
+    to vue会解析为href属性
+    -->
+    <router-link to="/user">用户</router-link>
+    <router-link to="/dept">部门</router-link>
+
+    <!--3.定义路由占位符 当用户点击路由时,在该位置展现页面-->
+
+    <router-view></router-view>
+</div>
+
+<script src="../js/vue.js"></script>
+<script src="../js/vue-router.js"></script>
+<script>
+    /*定义组件变量*/
+    const user = {
+      template: '<h1>我是user组件<h1>'
+    }
+
+    const dept = {
+        template: '<h1>我是部门组件<h1>'
+    }
+    /*配置路由规则*/
+    const router = new VueRouter({
+        //定义规则
+        routes: [
+            /*实行重定向redirect*/
+            { path:'/', redirect: '/dept'},
+            {path:"/user",component: user},
+            {path:"/dept",component: dept}
+        ]
+    })
+
+    const app = new Vue({
+        el:"#app",
+        router
+
+    })
+
+
+
+</script>
+</body>
+</html>

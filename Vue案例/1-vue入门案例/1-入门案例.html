@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VUE入门案例</title>
+
+</head>
+<body>
+    <div id="app">
+    <h1>{{hello}}</h1>
+    </div>
+    <!--1.导入vue.js的类库-->
+    <script src="../js/vue.js"></script>
+    <!--2.编辑vue js-->
+    <script>
+        //新规定:1.结尾的分号 可以省略   2.字符一般使用单引号
+        //补充知识: var:js中声明变量的修饰符 没有作用域的概念
+        //1.const 定义常量的
+        //2.let 有作用域的变量声明
+        //1.实例化VUE对象  函数式编程
+        const app = new Vue({
+            //1.定义el元素位置 要在那个位置
+            el: "#app",
+            //2.定义数据对象
+            data: {
+                hello:'VUE入门案例!!!'
+            }
+        })
+
+    </script>
+</body>
+</html>

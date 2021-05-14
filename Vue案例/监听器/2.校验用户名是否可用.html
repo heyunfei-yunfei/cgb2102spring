@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单修饰符</title>
+
+</head>
+<body>
+<div id="app">
+    <!--需求:
+    要求用户输入username的用户名,之后与服务器进行校验
+    如果已经存在给用户名提示,如果不存在则提示用户可用-->
+
+
+    用户名: <input type="text" v-model="userName">{{msg}}
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            userName: '',
+            //校验的结果
+            msg:''
+
+
+        },
+       //监听器
+        watch:{
+            //定义属性的监听器
+            userName(value){
+                this.checkName(value)
+            }
+
+        },
+
+        methods: {
+            checkName(val){
+                //===严格意义的数据校验 新版本提倡这样写 不光校验数值 还校验类型
+                if (val==="admin"){
+                    this.msg='用户已存在'
+                }else if (val==='tom'){
+                    this.msg='用户已存在'
+                } else{
+                    this.msg='用户名可用'
+                }
+
+            }
+
+        },
+        /*定义计算属性的key*/
+        computed: {
+
+
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>入门案例</title>
+</head>
+<body>
+<h1>Axios Ajax调用</h1>
+
+
+<h1>Axios Ajax调用</h1>
+
+<!-- 1.导入js类库 -->
+<script src="../js/axios.js"></script>
+<script>
+
+    //1.发起Get请求
+    // 原始参数  1: url地址  参数2:提交参数  参数3:回调函数
+    // 知识点: 传统的ajax的操作有"回调地狱问题" '闭包'
+    // 回调地狱问题: 由于业务复杂,导致多重的ajax进行嵌套. 如果中间出现任何问题.则导致整个ajax调用失败.
+
+    //参数 1: url地址  2.提交的参数
+    //跨域请求: 浏览器不能正常执行!!!!
+    let url = "http://localhost:8090/hello"
+    axios.get(url)
+        .then(function (result) {
+            //获取返回值 promise对象
+            console.log(result)
+            //如果需要获取服务器的返回值则使用.data属性
+            console.log(result.data)
+        })
+
+    //2.带参数的get请求
+    //url: http://localhost:8090/axios?id=100
+    axios.get('http://localhost:8090/axios?id=100')
+        .then(result => {
+            console.log(result.data)
+        })
+
+    //3.restFul风格
+    axios.get('http://localhost:8090/axios/100')
+        .then(result => {
+            console.log(result.data)
+        })
+
+
+    //4.利用params对象的方式传递参数
+    axios.get('http://localhost:8090/axiosParams', {
+        params: {
+            id: 100,
+            name: '阿里巴巴'
+        }
+    })
+        .then(result => {
+            console.log(result.data)
+        })
+
+    //注意事项:GET/DELETE语法相同!!!
+
+
+    /*post/put请求的说明:
+    * 如果采用对象的方式进行数据传输,则发起请求时*/
+    axios.post('http://localhost:8090/addAxios',{
+        id: 100,
+        name:'tomcat'
+    }).then(result=>{
+        console.log(result.data)
+    })
+
+
+    /**
+     * 通过form表单的方式提交数据
+     * 定义form表单对象
+     */
+    let pojo = new URLSearchParams()
+    pojo.append("id","100")
+    pojo.append("name","tomcat猫")
+    axios.post('http://localhost:8090/addAxiosForm',pojo)
+    .then(result=>{
+        console.log(result.data)
+    })
+
+
+    //配置ajax的基本路径
+    axios.defaults.baseURl="http://localhost:8090/"
+    axios.defaults.headers.mytoken='12223111'
+
+    axios.get("hello2")
+            .then(function (result) {
+                console.log("基本路径的写法优化")
+            })
+
+
+    async function getHello2() {
+        //data:是对象中的属性
+        //解构赋值:将返回的对象的数据 采用指定的对象接收
+        //value 表示接收返回结果
+        const{data:value} = await axios.get("hello")
+        console.log(value)
+    }
+
+    getHello2()
+
+</script>
+</body>
+</html>

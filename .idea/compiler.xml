@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring_demo_2_factory" />
+        <module name="spring_mvc_02" />
+        <module name="spring_mvc_01" />
+        <module name="spring_demo_1_io" />
+        <module name="springboot_demo_4" />
+        <module name="springboot_demo_3" />
+        <module name="springboot_demo_2" />
+        <module name="spring_demo_10_cache" />
+        <module name="spring_demo_1" />
+        <module name="spring_demo_6_mvc" />
+        <module name="spring_demo_4_mvc" />
+        <module name="spring_demo_7_tx" />
+        <module name="spring_demo_9_aop" />
+        <module name="spring_lianxi_03" />
+        <module name="spring_demo_3_di" />
+        <module name="springlianxi" />
+        <module name="spring_demo_5_annotation" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring_demo_1" target="1.8" />
+      <module name="spring_demo_10_cache" target="1.8" />
+      <module name="spring_demo_1_io" target="1.8" />
+      <module name="spring_demo_2_factory" target="1.8" />
+      <module name="spring_demo_3_di" target="1.8" />
+      <module name="spring_demo_4_mvc" target="1.8" />
+      <module name="spring_demo_5_annotation" target="1.8" />
+      <module name="spring_demo_6_mvc" target="1.8" />
+      <module name="spring_demo_7_tx" target="1.8" />
+      <module name="spring_demo_9_aop" target="1.8" />
+      <module name="spring_lianxi_03" target="1.8" />
+      <module name="spring_mvc_01" target="1.8" />
+      <module name="spring_mvc_02" target="1.8" />
+      <module name="springboot_demo_2" target="1.8" />
+      <module name="springboot_demo_3" target="1.8" />
+      <module name="springboot_demo_4" target="1.8" />
+      <module name="springlianxi" target="1.8" />
+      <module name="springMVC6" target="1.8" />
+      <module name="springMVC_05" target="1.8" />
+      <module name="springMVC_06" target="1.8" />
+      <module name="springmvcl_lianxi_01" target="1.8" />
+      <module name="untitled" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="spring_demo_1" options="-parameters" />
+      <module name="springboot_demo_2" options="-parameters" />
+      <module name="springboot_demo_3" options="-parameters" />
+      <module name="springboot_demo_4" options="-parameters" />
+      <module name="springlianxi" options="-parameters" />
+    </option>
+  </component>
+</project>

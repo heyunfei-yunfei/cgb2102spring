@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单修饰符</title>
+
+</head>
+<body>
+<div id="app">
+    <!--需求:用户全名的拼接-->
+    姓式: <input type="text" v-model="firstName"><br>
+    名字: <input type="text" v-model="lastName"><br>
+    全名:{{fullName}}
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            firstName:'',
+            lastName:'',
+            fullName:''
+
+
+        },
+        /*配置监听器
+        * key被监听的属性的名称  方法的结构*/
+        //value当监听器生效时 value就是属性的数据
+        watch:{
+        firstName(value){
+            this.fullName=value+this.lastName
+        },
+        lastName(value){
+            this.fullName=this.firstName+value
+        }
+
+        },
+
+        methods: {
+
+
+        },
+        /*定义计算属性的key*/
+        computed: {
+
+
+        }
+    })
+</script>
+</body>
+</html>

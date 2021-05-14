@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生命周期</title>
+
+</head>
+<body>
+<div id="app">
+    <!--1.Vue对象的生命周期函数,可以单独的调用
+        2.生命周期的函数名称是固定的
+    -->
+   用户名: <input type="text" v-model="name">
+
+   <button @click="destroyed()">销毁</button>
+
+
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+
+    const app = new Vue({
+        el: "#app",
+        data: {
+            name:''
+        },
+        methods:{
+          destroyed(){
+              //手动的销毁对象  vue中的对象api使用$调用
+              this.$destroy()
+            }
+        },
+        beforeCreate(){
+            console.log("初始化之后调用-beforeCreate")
+        },
+        //
+        created(){
+            console.log("实例化对象完成,并且完成了配置之后调用created")
+        },
+        beforeMount(){
+            console.log("数据在被挂在前调用beforeMount")
+        },
+        mounted(){
+            console.log("页面加载完成mounted")
+        },
+
+        beforeUpdate(){
+            console.log("数据更新时调用beforeUpdate")
+        },
+        //数据更改之后调用
+        updated(){
+            console.log("数据更改之后调用update")
+        },
+        //实例销毁之前调用,在这一步,实例仍然完全可用
+        beforeDestroy(){
+            console.log("vue对象销毁之前调用")
+        },
+        destroyed(){
+            console.log("实例销毁后调用destroyed")
+        }
+
+    })
+</script>
+</body>
+</html>

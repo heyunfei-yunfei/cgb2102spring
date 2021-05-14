@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分支结构语法</title>
+
+</head>
+<body>
+    <div id="app">
+    <!--需求:
+    设定课程的成绩:score 根据课程的成绩进行评级
+    score>=90分  显示优秀
+    score>=80分  显示良好
+    score>=70分  显示中等
+    score>=60分  显示及格
+    score<60分   不及格
+    -->
+        <!--注意事项:v-if/v-else位置应该连续 v-else不可以单独使用-->
+    <h3 v-if="score>=90">优秀</h3>
+    <h3 v-else-if="score>=80 && score<90">良好</h3>
+    <h3 v-else-if="score>=70 && score<80">中等</h3>
+    <h3 v-else-if="score>=60 && score<70">及格</h3>
+    <h3 v-else>不及格</h3>
+
+    <!--v-show指令 h3标签动态的展现-->
+        <h3 v-show="isShow">展现一个变化的数据</h3>
+        <button @click="isShow=!isShow">切换</button>
+
+        </div>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:"#app",
+            data:{
+                score:100,
+                isShow:true
+            }
+        })
+    </script>
+</body>
+</html>

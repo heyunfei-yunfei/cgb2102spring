@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分支结构语法</title>
+
+</head>
+<body>
+    <div id="app">
+        <h3 v-for="(o,i) in hobbies" v-text="o" :key="i"></h3>
+
+        <div v-for="user in userList" :key="user.id">
+            <span v-text="user.id"></span>
+            <span v-text="user.name"></span>
+
+        </div>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:"#app",
+            data:{
+                //一般采用数组形式保存多个数据
+                hobbies:['打游戏','敲代码','喝水','鳄鱼龟'],
+
+                userList: [{
+                    id:100,
+                    name: '孙尚香',
+                },{
+                    id:20,
+                    name: '貂蝉'
+                }
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/cgb2102.iml" filepath="$PROJECT_DIR$/.idea/cgb2102.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_demo_1/spring_demo_1.iml" filepath="$PROJECT_DIR$/spring_demo_1/spring_demo_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_demo_10_cache/spring_demo_10_cache.iml" filepath="$PROJECT_DIR$/spring_demo_10_cache/spring_demo_10_cache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_demo_1_io/spring_demo_1_io.iml" filepath="$PROJECT_DIR$/spring_demo_1_io/spring_demo_1_io.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_demo_2_factory/spring_demo_2_factory.iml" filepath="$PROJECT_DIR$/spring_demo_2_factory/spring_demo_2_factory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_demo_3_di/spring_demo_3_di.iml" filepath="$PROJECT_DIR$/spring_demo_3_di/spring_demo_3_di.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_demo_4_mvc/spring_demo_4_mvc.iml" filepath="$PROJECT_DIR$/spring_demo_4_mvc/spring_demo_4_mvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_demo_5_annotation/spring_demo_5_annotation.iml" filepath="$PROJECT_DIR$/spring_demo_5_annotation/spring_demo_5_annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_demo_6_mvc/spring_demo_6_mvc.iml" filepath="$PROJECT_DIR$/spring_demo_6_mvc/spring_demo_6_mvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_demo_7_tx/spring_demo_7_tx.iml" filepath="$PROJECT_DIR$/spring_demo_7_tx/spring_demo_7_tx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_demo_9_aop/spring_demo_9_aop.iml" filepath="$PROJECT_DIR$/spring_demo_9_aop/spring_demo_9_aop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_lianxi_03/spring_lianxi_03.iml" filepath="$PROJECT_DIR$/spring_lianxi_03/spring_lianxi_03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mvc_01/spring_mvc_01.iml" filepath="$PROJECT_DIR$/spring_mvc_01/spring_mvc_01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mvc_02/spring_mvc_02.iml" filepath="$PROJECT_DIR$/spring_mvc_02/spring_mvc_02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_demo_2/springboot_demo_2.iml" filepath="$PROJECT_DIR$/springboot_demo_2/springboot_demo_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_demo_3/springboot_demo_3.iml" filepath="$PROJECT_DIR$/springboot_demo_3/springboot_demo_3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_demo_4/springboot_demo_4.iml" filepath="$PROJECT_DIR$/springboot_demo_4/springboot_demo_4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springlianxi/springlianxi.iml" filepath="$PROJECT_DIR$/springlianxi/springlianxi.iml" />
+    </modules>
+  </component>
+</project>

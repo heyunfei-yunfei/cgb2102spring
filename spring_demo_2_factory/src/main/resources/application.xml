@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--动态生成Spring配置文件 注意头标签-->
+
+    <!--Spring容器管理对象
+    id:Spring容器中对象的唯一标识 不能重复 一般类名首字母小写
+    class:类的全路径 包名>类名-->
+    <!--静态工厂实例化对象的写法 方法必须是static-->
+   <bean id="calendar1" class="com.jt.factory.StaticFactory" factory-method="getCalendar"/>
+    <!--实例化工厂 步骤:将工厂交给spring容器管理 步骤2 :通过对象调用方法-->
+    <bean id="InstanceFactory" class="com.jt.factory.InstanceFactory"/>
+    <bean id="calendar2" factory-bean="InstanceFactory" factory-method="getCalendar"/>
+
+    <!--3.spring工厂模式-->
+    <bean id="calendar3" class="com.jt.factory.SpringFactory"/>
+
+    <!--4.测试单例多例
+    通过scope属性控制对象的单例和多里
+    scope="prototype"多例设置
+    scope="singleton"缺省值 单例 (默认)
+    lazy-init=true 开启懒加载
+    lazy-init=false/lazy-init="default" 懒加载不生效
+    原则:只要是多例对象 都是懒加载,懒加载只对单例对象有效
+    关于懒加载说明:一般服务器对象应该先行创建,用户直接使用即可
+    多例对象:用户使用时创建,同时将对象的声明周期交给使用者管理,Spring
+    不负责维护对象的生命周期
+    (随用随销)-->
+<!--    <bean id="user" class="com.jt.pojo.User" scope="prototype"/>-->
+<!--   <bean id="user" class="com.jt.pojo.User" lazy-init="true"/>-->
+
+
+    <!--测试对象的生命周期
+    init_method="init"初始化方法
+    destroy -method = "destroy" 销毁方法-->
+    <bean id="user" class="com.jt.pojo.User" init-method="init" destroy-method="destroy"/>
+
+
+</beans>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件</title>
+
+</head>
+<body>
+<div id="app">
+
+
+
+    <!--调用组件-->
+  <!--注意事项:
+  1.如果组件名称使用了驼峰规则,则默认的条件下vue渲染数据时都采用小写字母
+  hellocomponent.所以导致组建不能匹配
+  如果需要使用驼峰规则,则使用'-'线连接-->
+   <!-- <hellocomponent></hellocomponent>-->
+   <!--组件的调用时可以添加'-'-->
+    <hello-component></hello-component>
+    <hello-component></hello-component>
+    <hello-component></hello-component>
+
+
+ <!--模板标签的用法
+ 1.模板标签不要与vue div 耦合
+ 2.template标签需要添加id 进行标识
+ 3.template模板标签中 必须有根标签div-->
+
+
+</div>
+<template id="helloTem">
+ <div>
+  <h1>{{msg}}</h1>
+ </div>
+
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+   //1.定义一个全局组件  参数1:定义组件名称 暂时不要使用驼峰规则
+   //参数2:定义组件对象(函数)
+   Vue.component('helloComponent',{
+       //1.代表组件数据
+      data(){
+       //必须要有返回值  返回值是一个对象
+        return {
+          msg:'hello组件'
+        }
+      },
+     //2.组件结构 html数据
+    //''当前行有效
+    //``支持多种格式的html
+     //template:'<h1>{{msg}}</h1>'
+    /*组件模板的优化*/
+    template:'#helloTem'
+
+
+   })
+   //注意事项:组件的使用必须有Vue对象的渲染
+    const app = new Vue({
+      el:'#app',
+
+    })
+
+
+
+
+
+</script>
+</body>
+</html>

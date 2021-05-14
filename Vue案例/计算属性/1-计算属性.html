@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单修饰符</title>
+
+</head>
+<body>
+<div id="app">
+    <!--需求:需要对一个属性进行反转
+    思路:字符串拆分为数组  将数组进行反转
+    reverse():将数组进行翻转
+    join("连接符")将数组拼接为字符串
+    -->
+    用户输入: <input type="text" v-model.lazy="msg"><br>
+    常规调用:{{msg.split('').reverse().join('')}}
+    <!--添加计算属性名称的  -->
+    计算属性的调用:{{reverseMethod}}
+            <br>
+    方法实现反转:{{reverseMe()}}
+        <!--计算属性和方法的区别
+        考点:1.方法调用时每次都会重新加载
+        2.属性调用时会有缓存-->
+
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+          msg:''
+        },
+        methods: {
+                reverseMe(){
+                    console.log("方法的调用")
+                    return this.msg.split('').reverse().join('')
+                }
+        },
+        /*定义计算属性的key*/
+        computed:{
+            //指定计算属性的名称 要求有返回值
+            reverseMethod(){
+
+                return this.msg.split('').reverse().join('')
+            }
+        }
+    })
+</script>
+</body>
+</html>

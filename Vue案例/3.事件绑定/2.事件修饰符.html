@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件绑定操作</title>
+
+</head>
+<body>
+<!--事件冒泡,由于操作过程中可能有嵌套关系,所以会触发冒泡机制,
+如果需要阻止冒泡,通常使用.stop进行修饰-->
+    <div id="app" @click="addNum">
+    {{num}}
+        <!--添加绑定事件-->
+        <!--.stop阻止冒泡-->
+        <button @click.stop="num++">自增</button>
+        <hr>
+        <!--阻止默认行为,则使用prevent属性-->
+
+        <a href="http://www.baidu.com" @click="getMsg">百度</a>
+        <a href="http://www.baidu.com" @click.prevent="getMsg">百度</a>
+
+        <!--同步提交到百度 改为异步的方式-->
+        <form>
+            <input name="name"/>
+            <input type="submit" value="提交" @click.prvent="submit">
+        </form>
+        <hr>
+        <!--这是按回车键有效      还有其它多种按键   去官网查-->
+        <input type="text" name="name" @keyup.enter="handler" value="按回车键有效">
+
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:"#app",
+            data:{
+                num: 100
+            },
+            methods:{
+                addNum() {
+                    this.num++
+                },
+                getMsg(){
+                    console.log("一支兰州")
+                },
+                submit() {
+                    console.log("发起异步请求")
+                },
+                handler(){
+                    console.log("按键触发生效")
+                }
+
+            }
+
+        })
+    </script>
+</body>
+</html>

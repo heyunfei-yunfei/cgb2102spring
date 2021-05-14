@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算器案例</title>
+
+</head>
+<body>
+    <div id="app">
+    <h1>计算器案例</h1>
+    <input type="text" v-model="m1">
+    <br>
+    <input type="text" v-model="m2" @keyup.enter="handler">
+        <input type="submit" @click="handler">
+        <br>
+        总数:{{count}}
+
+
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+
+       const app =  new Vue({
+            el:"#app",
+            data:{
+                m1:0,
+                m2:0,
+                count:''
+            },
+            methods:{
+                handler(){
+                    this.count = parseInt(this.m1)+parseInt(this.m2)
+                }
+
+            }
+
+        })
+    </script>
+</body>
+</html>

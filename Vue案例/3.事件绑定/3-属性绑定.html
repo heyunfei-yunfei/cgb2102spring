@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件绑定操作</title>
+    <style>
+        .red{
+            background-color: red;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+   <!--需要为href属性动态绑定数据 v-bind-->
+        <a href="http://www.baidu.com">百度</a>
+        <!--属性绑定的语法 v-bind可以省略不写-->
+        <a :href="url">百度</a>
+        <div :class="{red:isRed}">
+        class的内容测试
+            <button @click="isRed=!isRed">切换</button>
+
+
+
+
+        </div>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:"#app",
+            data:{
+                url:'http://www.baidu.com',
+                isRed:true
+            }
+
+
+
+        })
+    </script>
+</body>
+</html>
