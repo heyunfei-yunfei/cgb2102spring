@@ -4,13 +4,21 @@ import Login from '../components/Login.vue'
 import Home from '../components/Home.vue'
 import Welcome from '../components/Welcome.vue'
 import User from '../components/user/User.vue'
+import ItemCat from '../components/ItemCat/ItemCat.vue'
+import ItemCatParam from '../components/ItemCat/ItemCatParam.vue'
+import Item from '../components/Item/Item.vue'
+import AddItem from '../components/addItem/addItem.vue'
 Vue.use(VueRouter)
 const routes = [
   {path: '/', redirect: '/login'},
   {path: '/login', component: Login},
   {path: '/home', component: Home,redirect:'/welcome', children :[
     {path:'/welcome',component: Welcome},
-    {path:'/user',component: User}
+    {path:'/user',component: User},
+    {path:'/itemCat',component:ItemCat},
+    {path:'/itemCatParam',component:ItemCatParam},
+    {path:'/item',component:Item},
+    {path:'/item/addItem',component:AddItem}
   ]}
 ]
 

@@ -15,18 +15,23 @@
         <module name="springboot_demo_3" />
         <module name="springboot_demo_2" />
         <module name="spring_demo_10_cache" />
+        <module name="jt_common" />
         <module name="spring_demo_1" />
         <module name="spring_demo_6_mvc" />
         <module name="spring_demo_4_mvc" />
         <module name="spring_demo_7_tx" />
         <module name="spring_demo_9_aop" />
         <module name="spring_lianxi_03" />
+        <module name="jt_manage" />
         <module name="spring_demo_3_di" />
         <module name="springlianxi" />
         <module name="spring_demo_5_annotation" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="jt" target="1.8" />
+      <module name="jt_common" target="1.8" />
+      <module name="jt_manage" target="1.8" />
       <module name="spring_demo_1" target="1.8" />
       <module name="spring_demo_10_cache" target="1.8" />
       <module name="spring_demo_1_io" target="1.8" />
@@ -53,6 +58,8 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="jt_common" options="-parameters" />
+      <module name="jt_manage" options="-parameters" />
       <module name="spring_demo_1" options="-parameters" />
       <module name="springboot_demo_2" options="-parameters" />
       <module name="springboot_demo_3" options="-parameters" />
